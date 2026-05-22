@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GrayQuest Fee Financing – Chanakya University</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1C3E; --navy-mid: #1E3A6E;
+    --gold: #C9A84C; --gold-light: #E3C97A; --gold-pale: #F5EDD1;
+    --white: #FFFFFF; --off-white: #F8F6F0;
+    --border: rgba(201,168,76,0.2);
+    --radius: 12px; --radius-lg: 20px;
+    --shadow: 0 4px 24px rgba(11,28,62,0.10);
+    --shadow-card: 0 8px 40px rgba(11,28,62,0.13);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Outfit', sans-serif; background: var(--off-white); color: var(--navy); min-height: 100vh; line-height: 1.6; }
+
+  /* TOPBAR */
+  .topbar { background: var(--navy); display: flex; align-items: center; padding: 14px 40px; position: sticky; top: 0; z-index: 100; border-bottom: 2px solid var(--gold); }
+  .topbar-logo { width: 38px; height: 38px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-weight: 700; font-size: 20px; color: var(--navy); margin-right: 14px; flex-shrink: 0; }
+  .topbar-name { font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--white); }
+  .topbar-name span { color: var(--gold); }
+  .topbar-uni { font-size: 11px; color: rgba(255,255,255,0.5); letter-spacing: 1.5px; text-transform: uppercase; }
+
+  /* HERO */
+  .hero { background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 100%); padding: 64px 40px 56px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -60px; right: -80px; width: 340px; height: 340px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%); pointer-events: none; }
+  .hero::after  { content: ''; position: absolute; bottom: -80px; left: -60px; width: 280px; height: 280px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%); pointer-events: none; }
+  .hero-tag { display: inline-block; background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4); color: var(--gold-light); font-size: 10px; letter-spacing: 1px; text-transform: uppercase; font-weight: 500; padding: 5px 14px; border-radius: 100px; margin-bottom: 22px; white-space: nowrap; }
+  .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 58px); font-weight: 700; color: var(--white); letter-spacing: -0.5px; line-height: 1.1; margin-bottom: 12px; }
+  .hero h1 span { color: var(--gold); }
+  .hero h2 { font-size: clamp(15px, 2vw, 18px); font-weight: 300; color: rgba(255,255,255,0.6); letter-spacing: 0.5px; }
+
+  /* LAYOUT */
+  .container { max-width: 1080px; margin: 0 auto; padding: 0 32px; }
+  .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); font-weight: 600; margin-bottom: 10px; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 3.5vw, 38px); font-weight: 700; color: var(--navy); line-height: 1.2; margin-bottom: 36px; }
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border) 30%, var(--border) 70%, transparent); margin: 52px 0; }
+
+  /* FINANCING OPTIONS */
+  .options-section { padding: 64px 0 20px; animation: fadeUp 0.5s ease both; }
+  .options-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  @media(max-width:680px){ .options-grid { grid-template-columns: 1fr; } }
+  .option-card { background: var(--white); border-radius: var(--radius-lg); border: 1px solid var(--border); padding: 32px; display: flex; flex-direction: column; position: relative; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s; }
+  .option-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+  .option-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); }
+  .option-tag { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; margin-bottom: 16px; width: fit-content; }
+  .tag-short { background: #EAF3DE; color: #3B6D11; }
+  .tag-long  { background: #E6F1FB; color: #185FA5; }
+  .option-card-icon { width: 48px; height: 48px; border-radius: 12px; background: var(--gold-pale); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 18px; }
+  .option-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .option-card p { font-size: 14px; color: #4A5B80; line-height: 1.75; }
+  .option-list { list-style: none; margin-top: 14px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+  .option-list li { font-size: 13px; color: #4A5B80; display: flex; gap: 8px; align-items: flex-start; }
+  .option-list li::before { content: '✦'; color: var(--gold); font-size: 10px; margin-top: 3px; flex-shrink: 0; }
+  .option-divider { height: 1px; background: var(--border); margin: 24px 0; }
+  .option-guide-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--navy); background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.35); padding: 11px 22px; border-radius: 8px; text-decoration: none; transition: all 0.2s; width: fit-content; }
+  .option-guide-link:hover { background: var(--gold); color: var(--navy); border-color: var(--gold); }
+  .option-btn-group { display: flex; flex-direction: column; gap: 10px; }
+  .option-apply-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: var(--white); background: var(--navy); border: 1.5px solid var(--navy-mid); padding: 11px 22px; border-radius: 8px; text-decoration: none; transition: all 0.2s; width: fit-content; }
+  .option-apply-link:hover { background: var(--navy-mid); border-color: var(--gold); box-shadow: 0 4px 14px rgba(11,28,62,0.18); }
+  .option-callback-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--white); background: #185FA5; border: 1.5px solid #185FA5; padding: 11px 22px; border-radius: 8px; text-decoration: none; transition: all 0.2s; width: fit-content; line-height: 1.4; }
+  .option-callback-link:hover { background: #0C447C; border-color: #0C447C; box-shadow: 0 4px 14px rgba(24,95,165,0.25); }
+
+  /* EMI CALCULATOR */
+  .emi-section { padding: 8px 0 20px; animation: fadeUp 0.5s 0.1s ease both; }
+  .emi-input-card { background: var(--navy); border-radius: var(--radius-lg); border: 1px solid rgba(201,168,76,0.3); padding: 40px; box-shadow: var(--shadow-card); position: relative; overflow: hidden; }
+  .emi-input-card::before { content: ''; position: absolute; top: -80px; right: -80px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(201,168,76,0.10) 0%, transparent 70%); pointer-events: none; }
+  .emi-input-card .section-label { color: var(--gold-light); }
+  .emi-input-card .section-title { color: var(--white); margin-bottom: 28px; }
+
+  .emi-input-row { display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap; margin-bottom: 36px; }
+  .emi-input-group { display: flex; flex-direction: column; gap: 8px; flex: 1; min-width: 220px; }
+  .emi-input-group label { font-size: 12px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.55); font-weight: 500; }
+  .emi-input-wrap { position: relative; display: flex; align-items: center; }
+  .emi-input-wrap .currency { position: absolute; left: 16px; font-size: 16px; font-weight: 600; color: var(--gold); pointer-events: none; }
+  .emi-input-wrap input { width: 100%; background: rgba(255,255,255,0.07); border: 1.5px solid rgba(201,168,76,0.35); border-radius: 10px; padding: 14px 16px 14px 36px; font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 600; color: var(--white); outline: none; transition: border-color 0.2s; }
+  .emi-input-wrap input::placeholder { color: rgba(255,255,255,0.25); font-size: 16px; font-weight: 400; }
+  .emi-input-wrap input:focus { border-color: var(--gold); background: rgba(201,168,76,0.08); }
+  .emi-input-wrap input::-webkit-outer-spin-button,
+  .emi-input-wrap input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .emi-input-wrap input[type=number] { -moz-appearance: textfield; }
+
+  .emi-results { display: none; }
+  .emi-results.visible { display: block; animation: fadeUp 0.35s ease both; }
+
+  .emi-summary-bar { display: flex; gap: 16px; flex-wrap: wrap; background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius); padding: 18px 24px; margin-bottom: 28px; align-items: center; }
+  .emi-summary-item { flex: 1; min-width: 110px; }
+  .emi-summary-item .s-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: rgba(255,255,255,0.45); margin-bottom: 4px; }
+  .emi-summary-item .s-val { font-size: 19px; font-weight: 600; color: var(--white); }
+  .emi-summary-item .s-val small { font-size: 12px; font-weight: 400; color: var(--gold); margin-left: 3px; }
+  .emi-sep { width: 1px; height: 38px; background: rgba(201,168,76,0.2); flex-shrink: 0; }
+  @media(max-width:600px){ .emi-sep { display: none; } }
+
+  .plan-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(148px, 1fr)); gap: 14px; }
+
+  .plan-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,168,76,0.2); border-radius: var(--radius); padding: 20px 14px; text-align: center; transition: all 0.2s; }
+  .plan-card:hover { background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.5); transform: translateY(-2px); }
+  .plan-card.featured { border-color: var(--gold); background: rgba(201,168,76,0.14); position: relative; padding-top: 28px; }
+  .plan-card.featured::before { content: 'Popular'; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--gold); color: var(--navy); font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 3px 12px; border-radius: 100px; white-space: nowrap; }
+
+  .plan-emi-count { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 700; color: var(--white); line-height: 1; }
+  .plan-emi-label { font-size: 11px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 14px; }
+  .plan-monthly { font-size: 17px; font-weight: 700; color: var(--gold-light); margin-bottom: 2px; }
+  .plan-monthly-label { font-size: 11px; color: rgba(255,255,255,0.45); margin-bottom: 10px; }
+  .plan-divider { height: 1px; background: rgba(201,168,76,0.15); margin: 8px 0 10px; }
+  .plan-stat { font-size: 11.5px; color: rgba(255,255,255,0.45); margin-bottom: 3px; }
+  .plan-stat strong { color: rgba(255,255,255,0.75); font-weight: 500; }
+  .plan-rate-badge { display: inline-block; background: rgba(201,168,76,0.15); color: var(--gold-light); font-size: 11px; font-weight: 600; padding: 3px 10px; border-radius: 100px; margin-top: 8px; }
+  .plan-down-label { font-size: 10px; color: rgba(255,255,255,0.35); margin-top: 5px; letter-spacing: 0.3px; line-height: 1.4; }
+
+  .emi-hint { font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 20px; text-align: center; line-height: 1.6; }
+
+  /* HELPDESK */
+  .helpdesk-section { background: var(--white); border-top: 3px solid var(--gold); padding: 52px 0 56px; margin-top: 60px; animation: fadeUp 0.5s 0.15s ease both; }
+  .helpdesk-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 8px; }
+  .helpdesk-card { background: var(--off-white); border: 1px solid var(--border); border-radius: var(--radius); padding: 24px 22px; transition: box-shadow 0.2s; }
+  .helpdesk-card:hover { box-shadow: var(--shadow); }
+  .helpdesk-card-icon { width: 38px; height: 38px; background: var(--gold-pale); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; margin-bottom: 14px; }
+  .helpdesk-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 16px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .helpdesk-card a, .helpdesk-card span { display: block; font-size: 13px; color: #4A5B80; text-decoration: none; line-height: 1.8; word-break: break-word; transition: color 0.15s; }
+  .helpdesk-card a:hover { color: var(--navy); text-decoration: underline; }
+  .helpdesk-phone { font-size: 15px; font-weight: 600; color: var(--navy) !important; letter-spacing: 0.5px; }
+
+  /* FOOTER */
+  footer { background: var(--navy); text-align: center; padding: 22px 32px; font-size: 12px; color: rgba(255,255,255,0.4); letter-spacing: 0.5px; }
+  footer span { color: var(--gold); }
+
+  /* STICKY PILL */
+  .help-pill { position: fixed; bottom: 28px; right: 28px; background: var(--navy); color: var(--gold); border: 1.5px solid var(--gold); border-radius: 100px; padding: 10px 22px; font-size: 13px; font-weight: 600; font-family: 'Outfit', sans-serif; display: flex; align-items: center; gap: 8px; text-decoration: none; transition: all 0.2s; z-index: 50; box-shadow: 0 4px 20px rgba(11,28,62,0.25); }
+  .help-pill:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-logo">GQ</div>
+  <div>
+    <div class="topbar-name"><span>GrayQuest</span> Fee Financing</div>
+    <div class="topbar-uni">Chanakya University - Bangalore</div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-tag">Making Fee Payments Flexible &amp; Effortless for Families</div>
+  <h1>GrayQuest <span>Fee Financing</span></h1>
+  <h2>Short Term EMIs &amp; Long Term Loans</h2>
+</section>
+
+<main class="container">
+
+  <!-- FINANCING OPTIONS -->
+  <section class="options-section">
+    <div class="section-label">Financing Options</div>
+    <div class="section-title">Choose the right financing option for you</div>
+    <div class="options-grid">
+
+      <div class="option-card">
+        <span class="option-tag tag-short">Short-Term EMI</span>
+        <div class="option-card-icon">⚡</div>
+        <h3>Short Term EMIs</h3>
+        <p>Flexible, <strong>non-collateral</strong> short-term EMI plans designed to split your <strong>semester or annual fee</strong> into easy monthly instalments — hassle-free.</p>
+        <ul class="option-list">
+          <li>Split fee into manageable monthly payments</li>
+          <li><strong>Non-collateral</strong> — no security required</li>
+          <li>Quick <strong>5-min</strong> digital process</li>
+          <li>Applicable for <strong>Tuition &amp; Hostel fees</strong></li>
+          <li><strong>NO</strong> Paperwork &amp; <strong>NO</strong> Processing fee</li>
+        </ul>
+        <div class="option-divider"></div>
+        <div class="option-btn-group">
+          <a class="option-guide-link" href="https://drive.google.com/drive/folders/1Zk_qlhKz1NTmB-1DkFYvdGjd5z7ehISp?usp=sharing" target="_blank" rel="noopener">
+            Open User Guide
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a class="option-apply-link" href="https://rapid.grayquest.com/cu-beng-master" target="_blank" rel="noopener">
+            Apply Now
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="option-card">
+        <span class="option-tag tag-long">Long-Term Loan</span>
+        <div class="option-card-icon">🏦</div>
+        <h3>Long Term Education Loans</h3>
+        <p>Comprehensive education loan solutions covering full programme fees with flexible repayment tenures, enabling students to focus on studies without financial stress.</p>
+        <ul class="option-list">
+          <li>Guaranteed loan facilitation from one of our trusted partners</li>
+          <li>Loan Tenure Up to 15 years (including moratorium period)</li>
+          <li>Moratorium options for reduced financial burden during study</li>
+          <li>Fully digital application process</li>
+          <li>Flexible repayment plans based on student and co-applicant income</li>
+        </ul>
+        <div class="option-divider"></div>
+        <div class="option-btn-group">
+          <a class="option-guide-link" href="https://drive.google.com/drive/folders/1Zk_qlhKz1NTmB-1DkFYvdGjd5z7ehISp?usp=sharing" target="_blank" rel="noopener">
+            Open User Guide
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a class="option-callback-link" href="https://form.typeform.com/to/tGwebCK7" target="_blank" rel="noopener">
+            Request a Call Back
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- EMI CALCULATOR -->
+  <section class="emi-section">
+    <div class="emi-input-card">
+      <div class="section-title">EMI Calculator (Short-term EMIs)</div>
+
+      <div class="emi-input-row">
+        <div class="emi-input-group">
+          <label>Enter Fee Amount</label>
+          <div class="emi-input-wrap">
+            <span class="currency">₹</span>
+            <input type="number" id="feeInput" placeholder="e.g. 100000" min="0" oninput="calcEMI()" />
+          </div>
+        </div>
+      </div>
+
+      <div class="emi-results" id="emiResults">
+        <div class="emi-summary-bar" id="summaryBar"></div>
+        <div class="plan-grid" id="planGrid"></div>
+        <p class="emi-hint">* Interest rates are indicative. Final amounts subject to GrayQuest approval. All amounts in Indian Rupees (₹).</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- HELPDESK -->
+<section class="helpdesk-section">
+  <div class="container">
+    <div class="section-label">Support</div>
+    <div class="section-title">GrayQuest Helpdesk</div>
+    <div class="helpdesk-grid">
+
+      <div class="helpdesk-card">
+        <div class="helpdesk-card-icon">📞</div>
+        <h4>General Enquiries</h4>
+        <a href="tel:+918071714239" class="helpdesk-phone">080-71714239</a>
+        <a href="mailto:thechanakya.support@grayquest.com">thechanakya.support@grayquest.com</a>
+      </div>
+
+      <div class="helpdesk-card">
+        <div class="helpdesk-card-icon">⚡</div>
+        <h4>Short-Term EMI Support</h4>
+        <a href="tel:+918071714239" class="helpdesk-phone">080-71714239</a>
+        <a href="mailto:thechanakya.support@grayquest.com">thechanakya.support@grayquest.com</a>
+      </div>
+
+      <div class="helpdesk-card">
+        <div class="helpdesk-card-icon">🏦</div>
+        <h4>Long-Term Education Loans</h4>
+        <a href="tel:+918071714239" class="helpdesk-phone">080-71714239</a>
+        <a href="mailto:eduloan.chanakya@grayquest.com" style="margin-top:2px;">eduloan.chanakya@grayquest.com</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span>GrayQuest</span> · Powered for Chanakya University - Bangalore · All rights reserved
+</footer>
+
+<a class="help-pill" href="mailto:thechanakya.support@grayquest.com">
+  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  Get Help
+</a>
+
+<script>
+  // EMI rates from Chanakya University rate card
+  const PLANS = [
+    { emis: 4,  rate: 0.0305, downCount: 1 },
+    { emis: 6,  rate: 0.0445, downCount: 1 },
+    { emis: 9,  rate: 0.0605, downCount: 1 },
+    { emis: 10, rate: 0.0720, downCount: 1 },
+    { emis: 12, rate: 0.0805, downCount: 1 },
+  ];
+
+  function fmt(n) {
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+
+  function calcEMI() {
+    const fee     = parseFloat(document.getElementById('feeInput').value);
+    const results = document.getElementById('emiResults');
+    const grid    = document.getElementById('planGrid');
+    const bar     = document.getElementById('summaryBar');
+
+    if (!fee || fee <= 0) { results.classList.remove('visible'); return; }
+
+    results.classList.add('visible');
+
+    const lowestMonthly = (fee + fee * PLANS[PLANS.length - 1].rate) / PLANS[PLANS.length - 1].emis;
+
+    bar.innerHTML = `
+      <div class="emi-summary-item">
+        <div class="s-label">Fee Amount</div>
+        <div class="s-val">${fmt(fee)}</div>
+      </div>
+      <div class="emi-sep"></div>
+      <div class="emi-summary-item">
+        <div class="s-label">Plans Available</div>
+        <div class="s-val">5 <small>options</small></div>
+      </div>
+      <div class="emi-sep"></div>
+      <div class="emi-summary-item">
+        <div class="s-label">Lowest Monthly</div>
+        <div class="s-val">${fmt(lowestMonthly)} <small>/ mo</small></div>
+      </div>
+      <div class="emi-sep"></div>
+      <div class="emi-summary-item">
+        <div class="s-label">Interest From</div>
+        <div class="s-val">3.05% <small>p.a.</small></div>
+      </div>
+    `;
+
+    grid.innerHTML = PLANS.map(p => {
+      const interest  = fee * p.rate;
+      const total     = fee + interest;
+      const monthly   = total / p.emis;
+      const downAmt   = monthly * p.downCount;
+      const downLabel = p.downCount === 1
+        ? '1st EMI as Down-Payment'
+        : `1st ${p.downCount} EMIs as Down-Payment`;
+      const isPop = p.emis === 12;
+
+      return `
+        <div class="plan-card${isPop ? ' featured' : ''}">
+          <div class="plan-emi-count">${p.emis}</div>
+          <div class="plan-emi-label">EMIs</div>
+          <div class="plan-monthly">${fmt(monthly)}</div>
+          <div class="plan-monthly-label">per month</div>
+          <div class="plan-divider"></div>
+          <div class="plan-stat">Total Interest: <strong>${fmt(interest)}</strong></div>
+          <div class="plan-stat">Total Amount: <strong>${fmt(total)}</strong></div>
+          <div class="plan-stat">Down-Payment: <strong>${fmt(downAmt)}</strong></div>
+          <div class="plan-down-label">${downLabel}</div>
+          <div class="plan-rate-badge">${(p.rate * 100).toFixed(2)}% interest</div>
+        </div>
+      `;
+    }).join('');
+  }
+</script>
+</body>
+</html>
